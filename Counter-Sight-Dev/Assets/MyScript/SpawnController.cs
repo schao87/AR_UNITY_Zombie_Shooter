@@ -20,7 +20,7 @@ public class SpawnController : MonoBehaviour {
 	}
 	void InvokeSpawnZombie(){
 		
-		spawnRateDelay = Random.Range (1f, 10f);
+		spawnRateDelay = Random.Range (3f, 10f);
 		InvokeRepeating ("SpawnZombie", spawnZombieAmount, spawnRateDelay);
 	}
 

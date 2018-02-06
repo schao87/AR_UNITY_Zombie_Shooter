@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+//using DG.Tweening;
 
 public class GameController : MonoBehaviour {
 
@@ -14,7 +15,8 @@ public class GameController : MonoBehaviour {
 	public GameObject PlaneFinder;
 	// Use this for initialization
 	void Start () {
-		health = 100;
+//		DOTween.Init ();
+		healthText.text = health.ToString ();
 	}
 	
 	// Update is called once per frame
@@ -27,11 +29,15 @@ public class GameController : MonoBehaviour {
 	public void zombieAttack(bool zombieAttacking){
 		bloodyScreen.gameObject.SetActive (true);
 		StartCoroutine (wait2Seconds());
+
+
 		health -= 1;
 
 		string stringHealth = health.ToString();
 		healthText.text = "" + stringHealth;
 	}
+
+
 	IEnumerator wait2Seconds(){
 		yield return new WaitForSeconds (2f);
 		bloodyScreen.gameObject.SetActive (false);

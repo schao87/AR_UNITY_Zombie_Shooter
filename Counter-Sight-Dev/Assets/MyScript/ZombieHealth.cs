@@ -7,7 +7,7 @@ public class ZombieHealth : MonoBehaviour {
 	private Collider boxCollider;
 	// Use this for initialization
 	void Start(){
-		boxCollider = GetComponent<BoxCollider> ();
+		boxCollider = GetComponent<BoxCollider> () as BoxCollider;
 	}
 	void Update () {
 		ZombieDie ();
@@ -26,6 +26,7 @@ public class ZombieHealth : MonoBehaviour {
 		if (health <= 0){
 			transform.Translate (0,0,0);
 			boxCollider.enabled = false;
+
 			Destroy (gameObject,1);
 			GetComponent<Animator> ().Play("back_fall");
 		}

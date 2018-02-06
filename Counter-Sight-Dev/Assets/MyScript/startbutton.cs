@@ -10,10 +10,14 @@ public class startbutton : MonoBehaviour {
 //	private PlaneFinderBehaviour PlaneFinderBehaviour;
 	public GameObject PlaneFinder;
 	public GameObject crosshair;
+	public Text gameTitle;
+	public Text instructions;
 
 	// Use this for initialization
 	void Start () {
 		startBtn.onClick.AddListener (startNewGame);
+		var planeIndicator = PlaneFinder.gameObject.transform.GetChild (0);
+		planeIndicator.gameObject.SetActive (true);
 	}
 	
 	void startNewGame(){
@@ -22,5 +26,7 @@ public class startbutton : MonoBehaviour {
 		startBtn.gameObject.SetActive (false);
 		fireBtn.gameObject.SetActive (true);
 		crosshair.gameObject.SetActive (true);
+		gameTitle.gameObject.SetActive (false);
+		instructions.gameObject.SetActive (false);
 	}
 }
